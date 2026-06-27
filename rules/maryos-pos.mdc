@@ -1,0 +1,34 @@
+---
+alwaysApply: true
+---
+# Maryos POS Rules
+
+## Stack
+- React
+- Vite
+- JavaScript
+- Supabase
+
+## Architecture
+- Components must be reusable.
+- Keep files under 300 lines.
+- Use Context API.
+- Use custom hooks when needed.
+- Separate UI, logic and services.
+
+## Database
+- Use Supabase.
+- Do not place Supabase queries directly in components.
+- Create services layer.
+
+## UI
+- Modern SaaS design.
+- Responsive.
+- Dark mode.
+- Touch friendly.
+
+## Learning
+Always explain:
+- What changed.
+- Why it changed.
+- How it works.
