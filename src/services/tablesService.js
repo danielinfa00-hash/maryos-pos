@@ -30,12 +30,23 @@ export async function fetchTables() {
 
 /** Crea una nueva mesa */
 export async function createTable(name) {
+  let nextSortOrder = 1
+  try {
+    const currentTables = await fetchTables()
+    if (currentTables && currentTables.length > 0) {
+      const maxSortOrder = Math.max(...currentTables.map(t => t.sort_order || 0))
+      nextSortOrder = isFinite(maxSortOrder) ? maxSortOrder + 1 : currentTables.length + 1
+    }
+  } catch (e) {
+    console.error('Error calculating sort_order:', e)
+  }
+
   const record = {
     name,
     status: TABLE_STATUS.FREE,
     total_amount: 0,
     item_count: 0,
-    sort_order: Date.now(),
+    sort_order: nextSortOrder,
     is_active: true,
   }
 
